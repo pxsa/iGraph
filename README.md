@@ -1,9 +1,11 @@
 # iGraph
-iGraph is a package written in go which you can easily create different type of graph such as tree data structure along side with some more facilities such as inserting vertices and edges, deleteing them and much more.
+iGraph is a package written in go which you can easily create different types of graph such as tree data structure along side with some more facilities such as inserting vertices and edges, deleteing them and much more.
 
 ## Content
 - [Installation](#Installation)
 - [Node](#Node)
+  - [Simple usage](#Simple-usage)
+- [Graph](#Graph)
   - [Simple usage](#Simple-usage)
 
 ## Installation
@@ -23,4 +25,16 @@ myNode := iGraph.Node {
   Value: 1,
   Parent: nil,
 }
+```
+
+## Graph
+graph is a data structure that has two important attributes `Nodes` and `Edges`. so here comes the question that how we can initialize Graph. for this trouble we can use `Read_txt(path string)` func, which only takes one parameter as the location of the file.
+
+> please pay attention that the first line of your file should contains a number to indicate the count's of nodes in your graph.
+
+see [input](https://github.com/pxsa/iGraph/input.txt) for more informaition.
+### Simple usage
+```
+myGraph := graph.Graph{}
+g.ReadTxt("input.txt")
 ```
