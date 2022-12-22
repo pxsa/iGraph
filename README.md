@@ -6,7 +6,6 @@ iGraph is a package written in go which you can easily create different types of
 - [Node](#Node)
   - [Simple usage](#Simple-usage)
 - [Graph](#Graph)
-  - [Simple usage](#Simple-usage)
 
 ## Installation
 To install `iGraph` package, you need to install Go and set your Go wrokspace first.
@@ -32,7 +31,7 @@ graph is a data structure that has two important attributes `Nodes` and `Edges`.
 
 > please pay attention that the first line of your file should contains a number to indicate the count's of nodes in your graph.
 
-see [input](https://github.com/pxsa/iGraph/input.txt) for more informaition.
+see [input](https://github.com/pxsa/iGraph/blob/master/input.txt) for more informaition.
 ### Simple usage
 ```
 myGraph := graph.Graph{}
