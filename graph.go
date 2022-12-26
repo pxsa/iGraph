@@ -9,7 +9,7 @@ import (
 
 type Graph struct {
 	Nodes []*Node
-	Edges [][2]int
+	Edges []*Edge
 }
 
 func (g *Graph) ReadTxt(path string) {
@@ -34,7 +34,7 @@ func (g *Graph) ReadTxt(path string) {
 
 			} else {
 				g.insertEdge(string(token))
-			}	
+			}
 		}
 		if err != nil {
 			break
@@ -54,33 +54,40 @@ func (g *Graph) insertEdge(line string) {
 	fNode.appendAdj(sNode)
 	sNode.appendAdj(fNode)
 
-	slice := [2]int{a, b}
-	g.Edges = append(g.Edges, slice)
+	newEdge := Edge{
+		Origin:      fNode,
+		Destination: sNode,
+	}
+	g.Edges = append(g.Edges, &newEdge)
 }
 
 func (g *Graph) appendNodes(count int) {
-	for i:=1; i <= count; i++{
+	for i := 1; i <= count; i++ {
 		g.AppendNode(i)
 	}
 }
 
 func (g *Graph) AppendNode(value int) {
-	node := &Node{Value: value, Parent: nil}
+	node := &Node{Value: value}
 	g.Nodes = append(g.Nodes, node)
 }
 
 func (g *Graph) Print() {
 	for _, edge := range g.Edges {
-		fmt.Println(edge)
+		fmt.Print(edge.Origin.Value, "--")
+		if edge.IsDirected {
+			fmt.Print(">")
+		}
+		fmt.Print(edge.Destination.Value)
 	}
+	fmt.Println()
 }
 
-func (g *Graph) getByValue(value int) *Node{
-	for _, node := range(g.Nodes) {
+func (g *Graph) getByValue(value int) *Node {
+	for _, node := range g.Nodes {
 		if node.Value == value {
 			return node
 		}
 	}
 	return nil
-} 
-
+}
