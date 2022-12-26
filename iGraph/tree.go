@@ -1,4 +1,4 @@
-package graph
+package iGraph
 
 type Tree struct {
 	Root *Node
