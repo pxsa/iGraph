@@ -77,7 +77,7 @@ func (g *Graph) Print() {
 
 func (g *Graph) getByValue(value int) *Node{
 	for _, node := range(g.Nodes) {
-		if node.value == value {
+		if node.Value == value {
 			return node
 		}
 	}
