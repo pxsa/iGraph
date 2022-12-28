@@ -9,6 +9,10 @@ type Node struct {
 	Adj   []*Node
 }
 
+func (node Node) GetValue() int {
+	return node.Value
+}
+
 func (n *Node) appendAdj(node *Node) {
 	n.Adj = append(n.Adj, node)
 }

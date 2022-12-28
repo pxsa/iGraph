@@ -8,7 +8,7 @@ import (
 )
 
 type Graph struct {
-	Nodes []*Node
+	Nodes []CustomNode
 	Edges []*Edge
 }
 
@@ -74,19 +74,19 @@ func (g *Graph) AppendNode(value int) {
 
 func (g *Graph) Print() {
 	for _, edge := range g.Edges {
-		fmt.Print(edge.Origin.Value, "--")
+		fmt.Print(edge.Origin.GetValue(), "--")
 		if edge.IsDirected {
 			fmt.Print(">")
 		}
-		fmt.Print(edge.Destination.Value)
+		fmt.Print(edge.Destination.GetValue())
 	}
 	fmt.Println()
 }
 
 func (g *Graph) getByValue(value int) *Node {
 	for _, node := range g.Nodes {
-		if node.Value == value {
-			return node
+		if node.GetValue() == value {
+			return node.(*Node)
 		}
 	}
 	return nil

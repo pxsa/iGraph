@@ -2,7 +2,7 @@ package iGraph
 
 type Edge struct {
 	Weight      int
-	Origin      *Node
-	Destination *Node
+	Origin      CustomNode
+	Destination CustomNode
 	IsDirected  bool
 }
